@@ -14,34 +14,42 @@ dotnet add package Philiprehberger.UrlBuilder
 
 ## Usage
 
+### Building URLs with Path and Query Parameters
+
 ```csharp
 using Philiprehberger.UrlBuilder;
 
-// Basic URL construction
 string url = Url.Base("https://api.example.com")
     .Path("v2", "users")
     .Query("page", 1)
     .Query("sort", "name")
     .Build();
 // "https://api.example.com/v2/users?page=1&sort=name"
+```
 
-// Multi-value query parameters
-string url2 = Url.Base("https://example.com/search")
+### Multi-Value Query Parameters
+
+```csharp
+using Philiprehberger.UrlBuilder;
+
+string url = Url.Base("https://example.com/search")
     .Query("tag", new[] { "csharp", "dotnet" })
+    .RemoveQuery("obsolete")
     .Build();
 // "https://example.com/search?tag=csharp&tag=dotnet"
+```
 
-// Modify parts of a URL
-string url3 = Url.Base("https://example.com")
+### Fragments, Scheme, Host, and Port
+
+```csharp
+using Philiprehberger.UrlBuilder;
+
+Uri uri = Url.Base("https://example.com")
     .Path("docs")
     .Fragment("getting-started")
-    .Build();
-// "https://example.com/docs#getting-started"
-
-// Convert to Uri
-Uri uri = Url.Base("https://example.com")
-    .Path("api")
+    .Port(8443)
     .ToUri();
+// https://example.com:8443/docs#getting-started
 ```
 
 ## API
