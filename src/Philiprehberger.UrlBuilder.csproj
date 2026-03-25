@@ -10,7 +10,7 @@
     <RootNamespace>Philiprehberger.UrlBuilder</RootNamespace>
 
     <PackageId>Philiprehberger.UrlBuilder</PackageId>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <Authors>Philip Rehberger</Authors>
     <Description>Fluent, immutable URL construction with path segments, query parameters, and proper encoding.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
